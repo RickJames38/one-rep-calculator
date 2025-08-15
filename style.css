@@ -1,0 +1,12 @@
+tr {
+    text-align: center;
+    border-bottom: 2px solid #262525;
+}
+
+thead tr {
+    border-bottom: 3px solid #262525;
+}
+
+td input {
+    text-align: center;
+}

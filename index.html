@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Weight Converter</title>
+</head>
+<body class="bg-blue-500">
+    <div class="container bg-[#333] text-white mt-40 mx-auto p-10">
+        <div class="row">
+            <div class="grid grid-col-6 gap-4">
+                <h1 class="text-4xl text-center text-red-500 mt-5 mb-3 font-[Audiowide]">
+                    One Rep Max Calculator
+                </h1>
+                <p class="text-center">Calculate your one-rep max (1RM) for any lift. Your one-rep
+                    max weight you can lift for a single repetition for a given
+                    exercise.</p>
+                <form class="mx-auto">
+                    <div class="form-group flex">
+                        <p class="m-6 text-center">Lift</p>
+                        <input
+                        id="lbsInput"
+                        type="number"
+                        class="w-full bg-white text-black mb-2 p-4 rounded-md"
+                        placeholder="Enter Lift..."
+                        >
+                    </div>
+                    <div class="form-group flex">
+                        <p class="m-6 text-center">Repetitions</p>
+                        <input
+                        id="repInput"
+                        type="number"
+                        class="bg-white text-black mb-2 p-4 rounded-md"
+                        placeholder="Enter Repetitions..."
+                        >
+                    </div>
+                </form>
+
+                <div class="button-con mx-auto">
+                    <button class="hover:cursor-pointer hover:bg-gray-100
+                    hover:text-white bg-white text-black p-4 m-2 rounded-md"
+                    onclick="calculate()">Calculate One Rep Max</button>
+                </div>
+
+                <!-- <input type="text" id="result"> -->
+
+                <div class="output-con" id="output">
+
+                    <div class="repHeader flex items-center">
+                        <h2 class="text-3xl p-4 mt-3 mb-2">Your one rep max is </h2>
+                            <input class="text-3xl" type="text" id="result">
+                    </div>
+    
+                    <table class="mx-auto">
+                        <thead>
+                            <tr>
+                                <th>Percentage of 1RM</th>
+                                <th>Lift Weight</th>
+                                <th>Repetitions of 1RM</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>100%</td>
+                                <td class="max-output">
+                                    <input class="text-center" type="text" id="percent-100">
+                                </td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>95%</td>
+                                <td class="max-output">
+                                    <input class="text-center" type="text" id="percent-95">
+                                </td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>90%</td>
+                                <td class="max-output">
+                                    <input class="text-center" type="text" id="percent-90">
+                                </td>
+                                <td>4</td>
+                            </tr>
+                            <tr>
+                                <td>85%</td>
+                                <td class="max-output">
+                                    <input class="text-center" type="text" id="percent-85">
+                                </td>
+                                <td>6</td>
+                            </tr>
+                            <tr>
+                                <td>80%</td>
+                                <td class="max-output">
+                                    <input class="text-center" type="text" id="percent-80">
+                                </td>
+                                <td>8</td>
+                            </tr>
+                            <tr>
+                                <td>75%</td>
+                                <td class="max-output">
+                                    <input class="text-center" type="text" id="percent-75">
+                                </td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>70%</td>
+                                <td class="max-output">
+                                    <input class="text-center" type="text" id="percent-70">
+                                </td>
+                                <td>12</td>
+                            </tr>
+                            <tr>
+                                <td>65%</td>
+                                <td class="max-output">
+                                    <input class="text-center" type="text" id="percent-65">
+                                </td>
+                                <td>16</td>
+                            </tr>
+                            <tr>
+                                <td>60%</td>
+                                <td class="max-output">
+                                    <input class="text-center" type="text" id="percent-60">
+                                </td>
+                                <td>20</td>
+                            </tr>
+                        </tbody>
+                    </table>
+    
+                    <!-- Repetition Percentages -->
+                    <h2 class="text-3xl p-4 mb-2 mt-3">Repetition Percentages of 1RM</h2>
+                    <table class="mx-auto">
+                        <thead>
+                            <tr>
+                                <th>Repetitions</th>
+                                <th>Lift Weight</th>
+                                <th>Percentage of 1RM</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td class="weight-output">
+                                    <input type="text" id="rep-percent-100">
+                                </td>
+                                <td>100%</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td class="weight-output">
+                                    <input type="text" id="rep-percent-97">
+                                </td>
+                                <td>97%</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td class="weight-output">
+                                    <input type="text" id="rep-percent-94">
+                                </td>
+                                <td>94%</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td class="weight-output">
+                                    <input type="text" id="rep-percent-92">
+                                </td>
+                                <td>92%</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td class="weight-output">
+                                    <input type="text" id="rep-percent-89">
+                                </td>
+                                <td>89%</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td class="weight-output">
+                                    <input type="text" id="rep-percent-86">
+                                </td>
+                                <td>86%</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td class="weight-output">
+                                    <input type="text" id="rep-percent-83">
+                                </td>
+                                <td>83%</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td class="weight-output">
+                                    <input type="text" id="rep-percent-81">
+                                </td>
+                                <td>81%</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td class="weight-output">
+                                    <input type="text" id="rep-percent-78">
+                                </td>
+                                <td>78%</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td class="weight-output">
+                                    <input type="text" id="rep-percent-75">
+                                </td>
+                                <td>75%</td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td class="weight-output">
+                                    <input type="text" id="rep-percent-73">
+                                </td>
+                                <td>73%</td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td class="weight-output">
+                                    <input type="text" id="rep-percent-71">
+                                </td>
+                                <td>71%</td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td class="weight-output">
+                                    <input type="text" id="rep-percent-70">
+                                </td>
+                                <td>70%</td>
+                            </tr>
+                            <tr>
+                                <td>14</td>
+                                <td class="weight-output">
+                                    <input type="text" id="rep-percent-68">
+                                </td>
+                                <td>68%</td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td class="weight-output">
+                                    <input type="text" id="rep-percent-67">
+                                </td>
+                                <td>67%</td>
+                            </tr>
+                            <tr>
+                                <td>16</td>
+                                <td class="weight-output">
+                                    <input type="text" id="rep-percent-65">
+                                </td>
+                                <td>65%</td>
+                            </tr>
+                            <tr>
+                                <td>17</td>
+                                <td class="weight-output">
+                                    <input type="text" id="rep-percent-64">
+                                </td>
+                                <td>64%</td>
+                            </tr>
+                            <tr>
+                                <td>18</td>
+                                <td class="weight-output">
+                                    <input type="text" id="rep-percent-62">
+                                </td>
+                                <td>62%</td>
+                            </tr>
+                            <tr>
+                                <td>19</td>
+                                <td class="weight-output">
+                                    <input type="text" id="rep-percent-61">
+                                </td>
+                                <td>61%</td>
+                            </tr>
+                            <tr>
+                                <td>20</td>
+                                <td class="weight-output">
+                                    <input type="text" id="rep-percent-60">
+                                </td>
+                                <td>60%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+    
+                </div>
+            </div>
+        </div>
+                </div>
+
+    <script src="script.js"></script>
+</body>
