@@ -11,9 +11,9 @@
     <title>Weight Converter</title>
 </head>
 <body class="bg-blue-500">
-    <div class="container flex justify-center bg-[#333] text-white p-10">
-        <div class="row">
-            <div class="grid grid-col-6 gap-4">
+    <body class="bg-blue-500">
+    <div class="bg-[#333] text-white p-10">
+            <div class="input-container flex flex-col gap-4">
                 <h1 class="text-4xl text-center text-red-500 mt-10 mb-3 font-[Audiowide]">
                     One Rep Max Calculator
                 </h1>
@@ -46,14 +46,15 @@
                     hover:text-white bg-white text-black p-4 m-2 rounded-md"
                     onclick="calculate()">Calculate One Rep Max</button>
                 </div>
+            </div>
 
                 <!-- <input type="text" id="result"> -->
 
                 <div class="output-con" id="output">
 
-                    <div class="repHeader flex items-center">
-                        <h2 class="text-3xl p-4 mt-3 mb-2">Your one rep max is </h2>
-                            <input class="text-3xl" type="text" id="result">
+                    <div class="repHeader flex flex-col p-10">
+                        <h2 class="text-3xl p-10 mb-2 mt-3 text-center text-yellow-400 font-[Audiowide]">Your one rep max is </h2>
+                            <input class="text-3xl mb-5 text-red-500 font-[Audiowide] text-center" type="text" id="result">
                     </div>
     
                     <table class="mx-auto">
@@ -132,7 +133,7 @@
                     </table>
     
                     <!-- Repetition Percentages -->
-                    <h2 class="text-3xl p-4 mb-2 mt-3">Repetition Percentages of 1RM</h2>
+                    <h2 class="text-3xl p-10 mb-2 mt-3 text-center text-yellow-400 font-[Audiowide]">Repetition Percentages of 1RM</h2>
                     <table class="mx-auto">
                         <thead>
                             <tr>
@@ -286,9 +287,7 @@
                     </table>
     
                 </div>
-            </div>
-        </div>
-                </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
